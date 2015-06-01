@@ -1,14 +1,17 @@
 package org.uqbar.project.wollok.game.domain;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestConstruccionDeJuego {
+public class GameboardTest {
 
-	private Object aGameBoard;
+	private Gameboard aGameBoard2x5;
 
 	@Before
 	public void init(){
+		this.aGameBoard2x5 = new Gameboard("UnTitulo", 2, 5);
+		
 		GameBuilder builder;
 		builder = new GameBuilder();
 //		aGameBoard = builder.withSizes(5,5)
@@ -28,7 +31,7 @@ public class TestConstruccionDeJuego {
 	}
 	
 	@Test
-	public void test(){
-		
+	public void on_initialize_create_all_cells() {
+		Assert.assertEquals(10, this.aGameBoard2x5.getCells().size());
 	}
 }

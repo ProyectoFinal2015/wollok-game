@@ -8,7 +8,7 @@ public class Gameboard {
 	
 	private static final int CELLZISE = 50;
 	private String tittle;
-	public List<Cell> cells = new ArrayList<Cell>();
+	private List<Cell> cells = new ArrayList<Cell>();
 	private int cantCellX;
 	private int cantCellY;
 
@@ -42,6 +42,10 @@ public class Gameboard {
 	// Getters & Setters
 	public String getTittle() {
 		return tittle;
+	}
+	
+	public List<Cell> getCells() {
+		return cells;
 	}
 
 }

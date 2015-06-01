@@ -29,7 +29,7 @@ public class GameboardListener implements ApplicationListener {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		
-		gameboard.cells.forEach(cell -> this.draw(cell));
+		gameboard.getCells().forEach(cell -> this.draw(cell));
 		
 		batch.end();
 	}
