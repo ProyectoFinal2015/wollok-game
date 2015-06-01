@@ -1,24 +1,47 @@
 package org.uqbar.project.wollok.game.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class Gameboard {
+	
+	private static final int CELLZISE = 50;
+	private String tittle;
+	public List<Cell> cells = new ArrayList<Cell>();
+	private int cantCellX;
+	private int cantCellY;
 
-		private List<VisualComponent> myObjects;
-		private List<Event> myEvents;
-		
-		
-		
-		public List<VisualComponent> getMyObjects() {
-			return myObjects;
+	public Gameboard(String tittle, int cantCellX, int cantCellY) {
+		this.tittle = tittle;
+		this.cantCellX = cantCellX;
+		this.cantCellY = cantCellY;
+		this.createCells(cantCellX, cantCellY);
+	}
+
+	public void render() {
+		new LwjglApplication(new GameboardListener(this), new GameboardConfiguration(this));
+	}
+
+	public int height() {
+		return cantCellY * CELLZISE;
+	}
+
+	public int width() {
+		return cantCellX * CELLZISE;
+	}
+	
+	private void createCells(int cantCellX, int cantCellY) {
+		for (int i = 0; i < cantCellX; i++) {
+			for (int j = 0; j < cantCellY; j++) {
+				cells.add(new Cell(i*CELLZISE, j*CELLZISE));
+			}
 		}
-		public void setMyObjects(List<VisualComponent> myObjects) {
-			this.myObjects = myObjects;
-		}
-		public List<Event> getMyEvents() {
-			return myEvents;
-		}
-		public void setMyEvents(List<Event> myEvents) {
-			this.myEvents = myEvents;
-		}
+	}
+
+	// Getters & Setters
+	public String getTittle() {
+		return tittle;
+	}
+
 }
