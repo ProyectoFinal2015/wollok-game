@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.uqbar.project.wollok.game.domain.listeners.KeyboardListener;
-import org.uqbar.project.wollok.game.domain.providers.GdxInputProvider;
-import org.uqbar.project.wollok.game.domain.providers.InputProvider;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class Gameboard {
@@ -17,7 +16,6 @@ public class Gameboard {
 	private int cantCellX;
 	private int cantCellY;
 	private List<KeyboardListener> listeners;
-	private InputProvider inputProvider = new GdxInputProvider();
 
 	public Gameboard(String tittle, int cantCellX, int cantCellY) {
 		this.tittle = tittle;
@@ -47,7 +45,7 @@ public class Gameboard {
 	}
 	
 	public boolean isKeyPressed(int key) {
-		return inputProvider.isKeyPressed(key);
+		return Gdx.input.isKeyPressed(key);
 	}
 
 	
@@ -62,9 +60,5 @@ public class Gameboard {
 
 	public List<KeyboardListener> getListeners() {
 		return listeners;
-	}
-
-	public void setInputProvider(InputProvider inputProvider) {
-		this.inputProvider = inputProvider;
 	}
 }

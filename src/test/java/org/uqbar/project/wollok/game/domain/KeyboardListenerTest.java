@@ -14,6 +14,7 @@ public class KeyboardListenerTest {
 	private KeyboardListener leftListener;
 	private Mario mario;
 	private Gameboard gameboard;
+	
 	@Before
 	public void init() {
 		mario = new Mario();
