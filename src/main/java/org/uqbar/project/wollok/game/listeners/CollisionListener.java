@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 import org.uqbar.project.wollok.game.VisualComponent;
 import org.uqbar.project.wollok.game.gameboard.Gameboard;
 
-public class CollisionListener implements Listener {
+public class CollisionListener implements GameboardListener {
 
 	private VisualComponent component;
 	private Consumer<VisualComponent> block;

@@ -2,7 +2,7 @@ package org.uqbar.project.wollok.game.listeners;
 
 import org.uqbar.project.wollok.game.gameboard.Gameboard;
 
-public class KeyboardListener implements Listener {
+public class KeyboardListener implements GameboardListener {
 
 	private int key;
 	private Runnable gameAction;

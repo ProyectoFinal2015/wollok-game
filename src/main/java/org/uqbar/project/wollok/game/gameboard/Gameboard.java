@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import org.uqbar.project.wollok.game.Position;
 import org.uqbar.project.wollok.game.VisualComponent;
-import org.uqbar.project.wollok.game.listeners.Listener;
+import org.uqbar.project.wollok.game.listeners.GameboardListener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -18,7 +18,7 @@ public class Gameboard {
 	private List<Cell> cells = new ArrayList<Cell>();
 	private int cantCellX;
 	private int cantCellY;
-	private List<Listener> listeners;
+	private List<GameboardListener> listeners;
 	private List<VisualComponent> components;
 
 	public Gameboard(String tittle, int cantCellX, int cantCellY) {
@@ -37,7 +37,7 @@ public class Gameboard {
 	}
 
 	public void start() {
-		new LwjglApplication(new GameboardListener(this), new GameboardConfiguration(this));
+		new LwjglApplication(new GameboardRendering(this), new GameboardConfiguration(this));
 	}
 	
 	public int height() {
@@ -66,7 +66,7 @@ public class Gameboard {
 		return cells;
 	}
 
-	public List<Listener> getListeners() {
+	public List<GameboardListener> getListeners() {
 		return listeners;
 	}
 	

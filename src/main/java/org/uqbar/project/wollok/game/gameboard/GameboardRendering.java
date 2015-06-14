@@ -7,13 +7,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class GameboardListener implements ApplicationListener {
+public class GameboardRendering implements ApplicationListener {
 
 	private Gameboard gameboard;
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 
-	public GameboardListener(Gameboard gameboard) {
+	public GameboardRendering(Gameboard gameboard) {
 		this.gameboard = gameboard;
 	}
 
