@@ -3,7 +3,8 @@ package org.uqbar.project.wollok.game.gameboard;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.uqbar.project.wollok.game.listeners.KeyboardListener;
+import org.uqbar.project.wollok.game.VisualComponent;
+import org.uqbar.project.wollok.game.listeners.Listener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -15,7 +16,8 @@ public class Gameboard {
 	private List<Cell> cells = new ArrayList<Cell>();
 	private int cantCellX;
 	private int cantCellY;
-	private List<KeyboardListener> listeners;
+	private List<Listener> listeners;
+	private List<VisualComponent> components;
 
 	public Gameboard(String tittle, int cantCellX, int cantCellY) {
 		this.tittle = tittle;
@@ -58,7 +60,11 @@ public class Gameboard {
 		return cells;
 	}
 
-	public List<KeyboardListener> getListeners() {
+	public List<Listener> getListeners() {
 		return listeners;
+	}
+
+	public void setComponents(List<VisualComponent> components) {
+		this.components = components;
 	}
 }

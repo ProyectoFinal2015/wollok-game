@@ -19,8 +19,8 @@ public class KeyboardListenerTest {
 	@Before
 	public void init() {
 		mario = new Mario();
-		leftListener = new KeyboardListener(Keys.LEFT, () -> mario.move());
 		gameboard = mock(Gameboard.class);
+		leftListener = new KeyboardListener(Keys.LEFT, () -> mario.move());
 	}
 	
 	@Test
