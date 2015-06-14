@@ -3,7 +3,7 @@ package org.uqbar.project.wollok.game.domain;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.uqbar.project.wollok.game.domain.gameboard.Gameboard;
+import org.uqbar.project.wollok.game.gameboard.Gameboard;
 
 public class GameboardTest {
 

@@ -1,11 +1,12 @@
 package org.uqbar.project.wollok.game.domain;
 
 import static org.mockito.Mockito.*;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.uqbar.project.wollok.game.domain.gameboard.Gameboard;
-import org.uqbar.project.wollok.game.domain.listeners.KeyboardListener;
+import org.uqbar.project.wollok.game.gameboard.Gameboard;
+import org.uqbar.project.wollok.game.listeners.KeyboardListener;
 
 import com.badlogic.gdx.Input.Keys;
 

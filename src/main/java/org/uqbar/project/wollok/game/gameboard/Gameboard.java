@@ -1,9 +1,9 @@
-package org.uqbar.project.wollok.game.domain.gameboard;
+package org.uqbar.project.wollok.game.gameboard;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.uqbar.project.wollok.game.domain.listeners.KeyboardListener;
+import org.uqbar.project.wollok.game.listeners.KeyboardListener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;

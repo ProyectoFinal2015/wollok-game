@@ -1,4 +1,4 @@
-package org.uqbar.project.wollok.game.domain.gameboard;
+package org.uqbar.project.wollok.game.gameboard;
 
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;

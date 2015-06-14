@@ -1,6 +1,6 @@
-package org.uqbar.project.wollok.game.domain.listeners;
+package org.uqbar.project.wollok.game.listeners;
 
-import org.uqbar.project.wollok.game.domain.gameboard.Gameboard;
+import org.uqbar.project.wollok.game.gameboard.Gameboard;
 
 public class KeyboardListener {
 

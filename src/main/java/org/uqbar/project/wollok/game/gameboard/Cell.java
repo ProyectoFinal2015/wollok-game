@@ -1,4 +1,4 @@
-package org.uqbar.project.wollok.game.domain.gameboard;
+package org.uqbar.project.wollok.game.gameboard;
 
 public class Cell {
 
