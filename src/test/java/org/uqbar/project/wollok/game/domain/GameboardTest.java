@@ -3,6 +3,7 @@ package org.uqbar.project.wollok.game.domain;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.uqbar.project.wollok.game.domain.gameboard.Gameboard;
 
 public class GameboardTest {
 
@@ -11,23 +12,6 @@ public class GameboardTest {
 	@Before
 	public void init(){
 		this.aGameBoard2x5 = new Gameboard("UnTitulo", 2, 5);
-		
-		GameBuilder builder;
-		builder = new GameBuilder();
-//		aGameBoard = builder.withSizes(5,5)
-//				.withVisualComponent("Mario")
-//				.withImage("mario.png")
-//				.freeMovement()
-//				.in(1,1)
-//				.withVisualComponent("Moneda")
-//				.withImage("moneda.png")
-//				.in(4,3)
-//				.withVisualComponent("BolsaDeMoneda")
-//				.withImage("bolsa_monedas.png")
-//				.in(4,1)
-//				.when((unMario, unaAgarrable) -> unMario.getPosition().equals(unaAgarrable.getPosition()))
-//				.execute("agarrar")
-//				.build();
 	}
 	
 	@Test
