@@ -13,7 +13,7 @@ public class KeyboardListener implements Listener {
 		
 	}
 
-	public void notifyKeyPressed(Gameboard gameboard) {
+	public void notify(Gameboard gameboard) {
 		if (gameboard.isKeyPressed(this.key))
 			gameAction.run();
 	}

@@ -16,9 +16,10 @@ public class CollisionListener implements Listener {
 	}
 
 	@Override
-	public void notifyKeyPressed(Gameboard gameboard) {
-		// TODO Auto-generated method stub
-		
+	public void notify(Gameboard gameboard) {
+		gameboard.getComponentsInPosition(component.getMyPosition())
+			.filter(it -> !it.equals(component))
+			.forEach(it -> block.accept(it));
 	}
 
 }

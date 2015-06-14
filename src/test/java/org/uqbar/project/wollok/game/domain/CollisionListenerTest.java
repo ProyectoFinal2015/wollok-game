@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Spy;
 import org.uqbar.project.wollok.game.Position;
 import org.uqbar.project.wollok.game.VisualComponent;
 import org.uqbar.project.wollok.game.gameboard.Gameboard;
@@ -20,9 +19,9 @@ public class CollisionListenerTest {
 	private VisualComponent mario;
 	private VisualComponent aCoin;
 	private VisualComponent otherCoin;
-	@Spy
 	private Consumer<VisualComponent> block;
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void init() {
 		mario = new VisualComponent();
@@ -37,19 +36,19 @@ public class CollisionListenerTest {
 		gameboard = new Gameboard("", 5, 5);
 		gameboard.setComponents(Arrays.asList(mario, aCoin, otherCoin));
 		
-		block = otherComponent -> {};
+		block = mock(Consumer.class);
 		collisionListener = new CollisionListener(mario, block);
 	}
 	
 	@Test
 	public void components_dont_collide_with_itself(){
-		collisionListener.notifyKeyPressed(gameboard);
+		collisionListener.notify(gameboard);
 		verify(block, never()).accept(mario);
 	}
 	
 	@Test
 	public void when_no_components_are_colliding_with_mario_then_nothing_happen(){
-		collisionListener.notifyKeyPressed(gameboard);
+		collisionListener.notify(gameboard);
 		verify(block, never()).accept(aCoin);
 		verify(block, never()).accept(otherCoin);
 	}
@@ -59,7 +58,7 @@ public class CollisionListenerTest {
 		aCoin.setMyPosition(mario.getMyPosition());
 		otherCoin.setMyPosition(mario.getMyPosition());
 		
-		collisionListener.notifyKeyPressed(gameboard);
+		collisionListener.notify(gameboard);
 		verify(block).accept(aCoin);
 		verify(block).accept(otherCoin);
 	}
@@ -68,7 +67,7 @@ public class CollisionListenerTest {
 	public void when_components_are_colliding_but_anyone_is_mario_then_nothing_happen(){
 		aCoin.setMyPosition(otherCoin.getMyPosition());
 		
-		collisionListener.notifyKeyPressed(gameboard);
+		collisionListener.notify(gameboard);
 		verify(block, never()).accept(aCoin);
 		verify(block, never()).accept(otherCoin);
 	}

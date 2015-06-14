@@ -2,7 +2,9 @@ package org.uqbar.project.wollok.game.gameboard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
+import org.uqbar.project.wollok.game.Position;
 import org.uqbar.project.wollok.game.VisualComponent;
 import org.uqbar.project.wollok.game.listeners.Listener;
 
@@ -49,6 +51,10 @@ public class Gameboard {
 	public boolean isKeyPressed(int key) {
 		return Gdx.input.isKeyPressed(key);
 	}
+	
+	public Stream<VisualComponent> getComponentsInPosition(Position myPosition) {
+		return components.stream().filter(it -> it.getMyPosition().equals(myPosition));
+	}
 
 	
 	// Getters & Setters
@@ -62,6 +68,10 @@ public class Gameboard {
 
 	public List<Listener> getListeners() {
 		return listeners;
+	}
+	
+	public List<VisualComponent> getComponents() {
+		return this.components;
 	}
 
 	public void setComponents(List<VisualComponent> components) {

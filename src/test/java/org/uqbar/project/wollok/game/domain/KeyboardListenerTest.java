@@ -25,14 +25,14 @@ public class KeyboardListenerTest {
 	
 	@Test
 	public void when_no_listened_key_is_pressed_nothing_happend(){
-		leftListener.notifyKeyPressed(gameboard);
+		leftListener.notify(gameboard);
 		Assert.assertFalse(mario.moved);
 	}
 	
 	@Test
 	public void when_listened_key_is_pressed_execute_the_action(){
 		when(gameboard.isKeyPressed(Keys.LEFT)).thenReturn(true);
-		leftListener.notifyKeyPressed(gameboard);
+		leftListener.notify(gameboard);
 		Assert.assertTrue(mario.moved);
 	}
 	
