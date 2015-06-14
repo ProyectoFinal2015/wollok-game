@@ -47,7 +47,7 @@ public class CollisionListenerTest {
 	}
 	
 	@Test
-	public void when_no_components_are_colliding_with_mario_then_nothing_happen(){
+	public void when_no_components_are_colliding_with_mario_then_nothing_happens(){
 		collisionListener.notify(gameboard);
 		verify(block, never()).accept(aCoin);
 		verify(block, never()).accept(otherCoin);
@@ -64,7 +64,7 @@ public class CollisionListenerTest {
 	}
 	
 	@Test
-	public void when_components_are_colliding_but_anyone_is_mario_then_nothing_happen(){
+	public void when_components_are_colliding_but_anyone_is_mario_then_nothing_happens(){
 		aCoin.setMyPosition(otherCoin.getMyPosition());
 		
 		collisionListener.notify(gameboard);
