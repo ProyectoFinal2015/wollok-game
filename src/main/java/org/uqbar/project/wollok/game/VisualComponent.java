@@ -1,4 +1,4 @@
-package org.uqbar.project.wollok.game.domain;
+package org.uqbar.project.wollok.game;
 
 public class VisualComponent {
 

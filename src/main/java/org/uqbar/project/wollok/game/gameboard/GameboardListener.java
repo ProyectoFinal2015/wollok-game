@@ -1,4 +1,4 @@
-package org.uqbar.project.wollok.game.domain;
+package org.uqbar.project.wollok.game.gameboard;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -29,6 +29,7 @@ public class GameboardListener implements ApplicationListener {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		
+		gameboard.getListeners().forEach(listener -> listener.notifyKeyPressed(gameboard));
 		gameboard.getCells().forEach(cell -> this.draw(cell));
 		
 		batch.end();
@@ -44,8 +45,6 @@ public class GameboardListener implements ApplicationListener {
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		batch.draw(texture, cell.width, cell.height);
 	}
-	
-	
 	
 	
 	@Override

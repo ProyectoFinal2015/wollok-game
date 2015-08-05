@@ -1,7 +1,11 @@
-package org.uqbar.project.wollok.game.domain;
+package org.uqbar.project.wollok.game.gameboard;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.uqbar.project.wollok.game.listeners.KeyboardListener;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class Gameboard {
@@ -11,24 +15,13 @@ public class Gameboard {
 	private List<Cell> cells = new ArrayList<Cell>();
 	private int cantCellX;
 	private int cantCellY;
+	private List<KeyboardListener> listeners;
 
 	public Gameboard(String tittle, int cantCellX, int cantCellY) {
 		this.tittle = tittle;
 		this.cantCellX = cantCellX;
 		this.cantCellY = cantCellY;
 		this.createCells(cantCellX, cantCellY);
-	}
-
-	public void render() {
-		new LwjglApplication(new GameboardListener(this), new GameboardConfiguration(this));
-	}
-
-	public int height() {
-		return cantCellY * CELLZISE;
-	}
-
-	public int width() {
-		return cantCellX * CELLZISE;
 	}
 	
 	private void createCells(int cantCellX, int cantCellY) {
@@ -39,6 +32,23 @@ public class Gameboard {
 		}
 	}
 
+	public void start() {
+		new LwjglApplication(new GameboardListener(this), new GameboardConfiguration(this));
+	}
+	
+	public int height() {
+		return cantCellY * CELLZISE;
+	}
+
+	public int width() {
+		return cantCellX * CELLZISE;
+	}
+	
+	public boolean isKeyPressed(int key) {
+		return Gdx.input.isKeyPressed(key);
+	}
+
+	
 	// Getters & Setters
 	public String getTittle() {
 		return tittle;
@@ -48,4 +58,7 @@ public class Gameboard {
 		return cells;
 	}
 
+	public List<KeyboardListener> getListeners() {
+		return listeners;
+	}
 }
