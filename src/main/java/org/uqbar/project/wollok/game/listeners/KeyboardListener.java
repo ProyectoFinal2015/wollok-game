@@ -2,7 +2,7 @@ package org.uqbar.project.wollok.game.listeners;
 
 import org.uqbar.project.wollok.game.gameboard.Gameboard;
 
-public class KeyboardListener {
+public class KeyboardListener implements GameboardListener {
 
 	private int key;
 	private Runnable gameAction;
@@ -13,7 +13,7 @@ public class KeyboardListener {
 		
 	}
 
-	public void notifyKeyPressed(Gameboard gameboard) {
+	public void notify(Gameboard gameboard) {
 		if (gameboard.isKeyPressed(this.key))
 			gameAction.run();
 	}

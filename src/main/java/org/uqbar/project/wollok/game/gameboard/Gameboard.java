@@ -2,8 +2,11 @@ package org.uqbar.project.wollok.game.gameboard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
-import org.uqbar.project.wollok.game.listeners.KeyboardListener;
+import org.uqbar.project.wollok.game.Position;
+import org.uqbar.project.wollok.game.VisualComponent;
+import org.uqbar.project.wollok.game.listeners.GameboardListener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -15,7 +18,8 @@ public class Gameboard {
 	private List<Cell> cells = new ArrayList<Cell>();
 	private int cantCellX;
 	private int cantCellY;
-	private List<KeyboardListener> listeners;
+	private List<GameboardListener> listeners;
+	private List<VisualComponent> components;
 
 	public Gameboard(String tittle, int cantCellX, int cantCellY) {
 		this.tittle = tittle;
@@ -33,7 +37,7 @@ public class Gameboard {
 	}
 
 	public void start() {
-		new LwjglApplication(new GameboardListener(this), new GameboardConfiguration(this));
+		new LwjglApplication(new GameboardRendering(this), new GameboardConfiguration(this));
 	}
 	
 	public int height() {
@@ -47,6 +51,10 @@ public class Gameboard {
 	public boolean isKeyPressed(int key) {
 		return Gdx.input.isKeyPressed(key);
 	}
+	
+	public Stream<VisualComponent> getComponentsInPosition(Position myPosition) {
+		return components.stream().filter(it -> it.getMyPosition().equals(myPosition));
+	}
 
 	
 	// Getters & Setters
@@ -58,7 +66,15 @@ public class Gameboard {
 		return cells;
 	}
 
-	public List<KeyboardListener> getListeners() {
+	public List<GameboardListener> getListeners() {
 		return listeners;
+	}
+	
+	public List<VisualComponent> getComponents() {
+		return this.components;
+	}
+
+	public void setComponents(List<VisualComponent> components) {
+		this.components = components;
 	}
 }
